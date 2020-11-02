@@ -21,7 +21,7 @@ To update the Official GEMC source code, you need to pull the latest version fro
 If you have set the software with other versions(e.g., clas12/pro, which has the latest versions of the software), your loading process will not succeed. In this case, you will need to unload them from your environment first. 
 
 <p>
-  module unload [the-versions-that-are-confilct]
+  module unload [the-versions-that-are-confilct]  
   module load clas12/2.1
 <p>
   
@@ -30,7 +30,7 @@ If you have set the software with other versions(e.g., clas12/pro, which has the
 To develop the simulation, it would be better you copy the current /group/bonus/gemc/devel/ directory to your own working directory and make any changes in your directory first. 
 You "might" can clone the gemc git repo from https://github.com/gemc/source as well because both of them contain similar structures. However, I am concerning that which has the up-to-date version for the simulation...
 <p>
-  cp -rf /group/bonus/gemc/devel/ [your-own-directory]
+  cp -rf /group/bonus/gemc/devel/ [your-own-directory]  
 or
   git clone github.com/gemc/source
 <p>
@@ -42,21 +42,21 @@ Go to the source directory, which is located in your gemc folder, and this is wh
   cd [your-own-gemc-directory]/source
   scons OPT=1 -jN 
 <p>
-where N = number of cores you want to use. It's an arbitrary choice or you can make it simple to set N=4. 
-If everything works well, you will find a "gemc" file in the folder after the compiling. 
+where N = number of cores you want to use. It's an arbitrary choice or you can make it simple to set N=4.  
+  If everything works well, you will find a "gemc" file in the folder after the compiling. 
 
 3. Run the Simulation
 Since I don't think it's a good idea to run the simulation in the source directory, it might be better to move the gemc to another directory and run your simulation. At this moment, let's move gemc to the previous folder, which has the RGF configuration file "rgf_spring2020_lund.gcard", and then run the simulation. 
 
 <p>
-  mv gemc ../
+  mv gemc ../  
   ./gemc rgf_spring2020_lund.gcard -N=100 -RUNNO=11
 <p>
 where N is the nummber of events that you want to generate. 
 Therefore, you are supposed to control the setting with the GUI of the gemc. If you want to generate the events without GUI, you need to add an additional option:
-  ./gemc rgf_spring2020_lund.gcard -USE_GUI=0 -N=100 -RUNNO=11
+  ./gemc rgf_spring2020_lund.gcard -USE_GUI=0 -N=100 -RUNNO=11  
   
-The default output file name of the simulation is "out.evio". You can specify the name of the output file with the option "OUTPUT", i.e.,
+The default output file name of the simulation is "out.evio". You can specify the name of the output file with the option "OUTPUT", i.e.,  
   ./gemc rgf_spring2020_lund.gcard -OUTPUT="evio, [name-of-output-file].evio" -USE_GUI=0 -N=100 -RUNNO=11
   
 Another way to change these settings is to modify the content in your .gcard file. 
